@@ -3,7 +3,7 @@ node_modules/
 .nyc_output/
 coverage/
 .DS_Store
-
+dist/
 # Ignore Fastify-related files
 .fastify-cache/
 .fastify-log/
