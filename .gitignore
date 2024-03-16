@@ -1,0 +1,22 @@
+# Ignore Node.js-related files
+node_modules/
+.nyc_output/
+coverage/
+.DS_Store
+
+# Ignore Fastify-related files
+.fastify-cache/
+.fastify-log/
+
+# Ignore editor-related files
+.vscode/
+.idea/
+
+# Ignore OS-generated files
+.DS_Store
+Thumbs.db
+
+# Ignore personal preference files
+.editorconfig
+.eslintrc.js
+.prettierrc.js
