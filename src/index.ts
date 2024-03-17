@@ -21,7 +21,8 @@ const ShortenedList: IShortenedURL[] = [
     shortenedURL: "http://localhost:3000/Jk$A",
   },
 ];
-// server.get('/*') get any matching parameter and check on list, if found it redirects to the site
+// write corresponding headers to each endpoint 
+// server.get('/*') gets any matching parameter and check on list, if found it redirects to the site
 server.get("/*", async (request: FastifyRequest, reply: FastifyReply) => {
   try {
     const url = request.url.slice(1);
@@ -84,3 +85,5 @@ server.listen({ port: 3000 }, function (err, address) {
   }
   server.log.info(`Server is now listening on ${address}`);
 });
+
+export default server;
