@@ -1,8 +1,8 @@
 <h1 align="center">Welcome to URL-Shortener 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-702963.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
-    <img alt="License: ISC" src="https://img.shields.io/badge/License-ISC-yellow.svg" />
+    <img alt="License: ISC" src="https://img.shields.io/badge/License-ISC-black.svg" />
   </a>
 </p>
 
@@ -11,9 +11,9 @@
 ## Used Technologies
 
 - <img alt="Typescript" src="https://img.shields.io/badge/typescript-5.4.1-blue.svg" />
-- <img alt="Fastify" src="https://img.shields.io/badge/fastify-4.26.2-green.svg" />
-- <img alt="Node.js" src="https://img.shields.io/badge/node.js-20.9.0-green.svg" />
-- <img alt="Vitest" src="https://img.shields.io/badge/vitest-1.4.0-green.svg" />
+- <img alt="Fastify" src="https://img.shields.io/badge/fastify-4.26.2-207521.svg" />
+- <img alt="Node.js" src="https://img.shields.io/badge/node.js-20.9.0-6A5ACD.svg" />
+- <img alt="Vitest" src="https://img.shields.io/badge/vitest-1.4.0-FFA726.svg" />
 ## Install
 
 ### Npm
