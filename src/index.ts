@@ -5,6 +5,7 @@ import {
   FastifyReply
 } from 'fastify'
 import IShortenedURL from './interfaces/IShortenedList'
+import crypto from 'crypto'
 const server: FastifyInstance = fastify({
   logger: true
 })
@@ -24,6 +25,7 @@ const ShortenedList: IShortenedURL[] = [
 server.get('/*', async (request: FastifyRequest, reply: FastifyReply) => {
   try {
     const url = request.url.slice(1)
+    console.log(url)
     const found = ShortenedList.find(
       (item) => item.shortenedURL === `http://localhost:3000/${url}`
     )
@@ -36,28 +38,39 @@ server.get('/*', async (request: FastifyRequest, reply: FastifyReply) => {
     await reply.send(err)
   }
 })
-
-// server.get('/', async (request, reply) => {
-//   try {
-//     await reply.send({ hello: 'world', isThisaTest: true })
-//   } catch (err) {
-//     await reply.send(err)
-//   }
-// })
-
-// server.get('/salute/:name', async (request: FastifyRequest <{ Params: IParamsName }>, reply: FastifyReply) => {
-//   try {
-//     const name = request.params.name
-//     await reply.send({ hello: name || 'stranger' })
-//   } catch (err) {
-//     await reply.send(err)
-//   }
-// })
+server.post(
+  '/shorten',
+  async (
+    request: FastifyRequest<{ Body: IShortenedURL }>,
+    reply: FastifyReply
+  ) => {
+    try {
+      const { originalURL } = request.body
+      const id = ShortenedList.length + 1
+      const hashedURL = crypto
+        .createHash('sha256')
+        .update(originalURL)
+        .digest('hex')
+      const shortHashed = hashedURL.substring(0, 5)
+      const shortenedURL = `http://localhost:3000/${shortHashed}`
+      ShortenedList.push({ id, originalURL, shortenedURL })
+      await reply
+        .send({
+          id,
+          originalURL,
+          shortenedURL,
+          message: 'created successfully'
+        })
+        .status(201)
+    } catch (err) {
+      await reply.send(err)
+    }
+  }
+)
 server.get(
   '/ShortenedList',
   async (request: FastifyRequest, reply: FastifyReply) => {
     try {
-      request.headers
       await reply.send(ShortenedList)
     } catch (err) {
       await reply.send(err)
