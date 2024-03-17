@@ -21,6 +21,7 @@ const ShortenedList: IShortenedURL[] = [
     shortenedURL: 'http://localhost:3000/Jk$A'
   }
 ]
+//test
 // write corresponding headers to each endpoint
 // server.get('/*') gets any matching parameter and check on list, if found it redirects to the site
 server.get('/*', async (request: FastifyRequest, reply: FastifyReply) => {
