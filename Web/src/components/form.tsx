@@ -35,13 +35,13 @@ export default function Form () {
         id='form'
         method='GET'
         onSubmit={handleSubmit}
-        className='flex flex-col items-center justify-center gap-4'
+        className='flex flex-col items-center justify-center gap-4 w-svw'
       >
         <label>So here it goes your URL: </label>
         <input
           type='text'
           name='url'
-          className='rounded-lg max-w-96'
+          className='rounded-lg w-96'
           style={{ color: 'black' }}
         />
         <button
