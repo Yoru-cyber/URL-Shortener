@@ -6,7 +6,7 @@
   </a>
 </p>
 
-> This a URL Shortener made with Typescript. Currently it is just a Restful API that takes an URL and returns the shortened URL that points to the original URL.
+> This a URL Shortener made with Typescript. It's a website made with Astro complemented by a Fastify API that takes an URL and returns the shortened URL that points to the original URL.
 
 ## Used Technologies
 
@@ -14,6 +14,7 @@
 - <img alt="Fastify" src="https://img.shields.io/badge/fastify-4.26.2-207521.svg" />
 - <img alt="Node.js" src="https://img.shields.io/badge/node.js-20.9.0-6A5ACD.svg" />
 - <img alt="Vitest" src="https://img.shields.io/badge/vitest-1.4.0-FFA726.svg" />
+- <img alt="Vitest" src="https://img.shields.io/badge/astro-4.5.8-FCB92.svg" />
 ## Install
 
 ### Npm
