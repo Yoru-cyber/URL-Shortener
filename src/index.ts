@@ -6,8 +6,13 @@ import {
 } from 'fastify'
 import IShortenedURL from './interfaces/IShortenedList'
 import crypto from 'crypto'
+import fastifyCors from '@fastify/cors'
 const server: FastifyInstance = fastify({
   logger: true
+})
+// only god knows what is happening here
+server.register(fastifyCors, {
+  origin: true
 })
 const ShortenedList: IShortenedURL[] = [
   {
@@ -21,7 +26,7 @@ const ShortenedList: IShortenedURL[] = [
     shortenedURL: 'http://localhost:3000/Jk$A'
   }
 ]
-//test
+// test
 // write corresponding headers to each endpoint
 // server.get('/*') gets any matching parameter and check on list, if found it redirects to the site
 server.get('/*', async (request: FastifyRequest, reply: FastifyReply) => {
@@ -48,6 +53,17 @@ server.post(
   ) => {
     try {
       const { originalURL } = request.body
+      if (!originalURL) {
+        await reply.send({ error: 'an URL is required' })
+        return
+      }
+      const found = ShortenedList.find(
+        (item) => item.originalURL === originalURL
+      )
+      if (found != null) {
+        await reply.send(found)
+        return
+      }
       const id = ShortenedList.length + 1
       const hashedURL = crypto
         .createHash('sha256')
@@ -73,9 +89,9 @@ server.get(
   '/ShortenedList',
   async (_request: FastifyRequest, reply: FastifyReply) => {
     try {
-      await reply.send(ShortenedList)
+      await reply.send(ShortenedList).status(200)
     } catch (err) {
-      await reply.send(err)
+      await reply.send(err).status(400)
     }
   }
 )

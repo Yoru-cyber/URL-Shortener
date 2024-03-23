@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Form from "../components/form"
+// const data = async () =>{
+// 	const response = await fetch('http://localhost:3000/ShortenedList', {
+// 		method: 'GET',
+// 		headers: {
+// 			'Content-Type': 'application/json',
+// 		},
+// 	})
+// 	.then(response => response.json())
+// 	.then(data => {
+// 		console.log(data);
+// 	})
+// 	.catch((error) => {
+// 		console.error('Error querying API: ', error);
+// 	});
+// }
+// data()
+---
+
+<Layout title="URL Shortener">
+  <main class="flex flex-col justify-center text-center items-center m-5">
+    <section id="description" class="w-2/5 text-justify">
+      <p>
+        This an <strong>URL shortener ✂️.</strong> It takes any URL you insert and returns
+        a shorter one. Example: <strong
+          ><i>https://www.youtube.com/watch?v=fJqjcbukUAc.</i></strong
+        > That's your original URL, so this is what would you could get in return
+        <strong><i>http://localhost/d%S42.</i></strong>
+      </p>
+    </section>
+	<section id="url-shortener" class="flex flex-col justify-center text-center items-center m-5">
+		<Form client:load></Form>
+	</section>
+  </main>
+</Layout>

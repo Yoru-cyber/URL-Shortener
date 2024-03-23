@@ -1,7 +1,7 @@
 {
     "watch": ["src"],
     "ext": "ts",
-    "exec": "vitest || ts-node ./src/index.ts",
+    "exec": "ts-node ./src/index.ts",
     "events":{
         "restart": "ts-standard --fix"
     }
