@@ -17,10 +17,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20.9.0"
-      - run: npm ci
-      - run: npm test
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run Test
+        run: npm test
       - name: Push changes
-        if: success()
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+        if: success()
